@@ -1,11 +1,13 @@
 module Bittrex
   module Api
     class Public
+      include Base
+
       def get(method, **params)
         begin
           Request.new(send(method, params)).get
         rescue NoMethodError => e
-          puts e.inspect
+          raise InvalidApiMethod, e.message
         end
       end
 
