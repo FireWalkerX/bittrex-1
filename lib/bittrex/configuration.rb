@@ -1,2 +1,2 @@
-class Configuration < Struct.new(:key, :secret)
+class Configuration < Struct.new(:key, :secret, :api_version)
 end
