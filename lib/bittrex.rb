@@ -7,6 +7,7 @@ require 'bittrex/api/request'
 require 'bittrex/api/response'
 require 'bittrex/api/base'
 require 'bittrex/api/public'
+require 'bittrex/api/market'
 
 
 module Bittrex

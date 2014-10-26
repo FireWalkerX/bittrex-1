@@ -12,6 +12,10 @@ module Bittrex
         Response.new(open(full_url))
       end
 
+      def post
+        Response.new(open(full_url))
+      end
+
       private
 
       def full_url

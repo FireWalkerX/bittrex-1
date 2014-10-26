@@ -3,14 +3,6 @@ module Bittrex
     class Public
       include Base
 
-      def get(method, **params)
-        begin
-          Request.new(send(method, params)).get
-        rescue NoMethodError => e
-          raise InvalidApiMethod, e.message
-        end
-      end
-
       private
 
       def markets(_params)
