@@ -6,7 +6,7 @@ module Bittrex
       private
 
       def api_key
-        @api_key ||= '?apikey=' + Bittrex.config.key
+        @api_key ||= '?apikey=' + Bittrex.configuration.key
       end
 
       def buy_limit(market:, quantity:, rate:)
