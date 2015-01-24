@@ -12,12 +12,12 @@ require 'bittrex/api/market'
 
 module Bittrex
 
-  def self.config
-    @configure ||= Configuration.new(nil, nil, 1.1)
+  def self.configuration
+    @configuration ||= Configuration.new(nil, nil, 1)
   end
 
-  def self.configure(&block)
-    block.call(config)
+  def self.config(&block)
+    block.call(configuration)
   end
 end
 

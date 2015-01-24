@@ -4,7 +4,7 @@ module Bittrex
       attr_reader :base_url, :path
 
       def initialize(path)
-        @base_url = "https://bittrex.com/api/v#{Bittrex.config.api_version}/"
+        @base_url = "https://bittrex.com/api/v#{Bittrex.configuration.api_version}/"
         @path = path
       end
 
