@@ -1,25 +1,25 @@
 module Bittrex
   module Api
     class Request
-      attr_reader :base_url, :path
 
       def initialize(path)
         @base_url = "https://bittrex.com/api/v#{Bittrex.configuration.api_version}/"
         @path = path
+        @full_url = @base_url + @path
       end
 
       def get
-        Response.new(open(full_url))
-      end
-
-      def post
-        Response.new(open(full_url))
+        Response.new(open(@full_url, { 'APISIGN' => hmac_signature }))
       end
 
       private
 
       def full_url
-        base_url + path
+
+      end
+
+      def hmac_signature
+        OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha512'), Bittrex.configuration.secret, @full_url)
       end
     end
   end

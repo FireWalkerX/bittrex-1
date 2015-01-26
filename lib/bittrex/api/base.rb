@@ -17,18 +17,10 @@ module Bittrex
           end
         end
 
-        def post(method, **params)
-          begin
-            Request.new(send(method, params)).post
-          rescue NoMethodError => e
-            raise InvalidApiMethod, e.message
-          end
-        end
-
         private
 
         def api_key
-          @api_key ||= '?apikey=' + Bittrex.configuration.key
+          "?apikey=#{Bittrex.configuration.key}&nonce=#{Time.now.to_i}"
         end
       end
     end
