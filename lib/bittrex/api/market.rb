@@ -7,19 +7,19 @@ module Bittrex
 
       class << self
         def buy_limit(market:, quantity:, rate:)
-          'market/buylimit' + api_key + '&market=' + market + '&quantity=' + quantity + '&rate=' + rate
+          'market/buylimit' + api_key + '&market=' + market + '&quantity=' + quantity.to_s + '&rate=' + rate.to_s
         end
 
         def buy_market(market:, quantity:)
-          'market/buylimit' + api_key + '&market=' + market + '&quantity=' + quantity
+          'market/buylimit' + api_key + '&market=' + market + '&quantity=' + quantity.to_s
         end
 
         def sell_limit(market:, quantity:, rate:)
-          'market/selllimit' + api_key + '&market=' + market + '&quantity=' + quantity + '&rate=' + rate
+          'market/selllimit' + api_key + '&market=' + market + '&quantity=' + quantity.to_s + '&rate=' + rate.to_s
         end
 
         def sell_market(market:, quantity:, rate:)
-          'market/sellmarket' + api_key + '&market=' + market + '&quantity=' + quantity
+          'market/sellmarket' + api_key + '&market=' + market + '&quantity=' + quantity.to_s
         end
 
         def cancel(uuid:)
