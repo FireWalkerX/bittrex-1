@@ -20,4 +20,3 @@ module Bittrex
     block.call(configuration)
   end
 end
-

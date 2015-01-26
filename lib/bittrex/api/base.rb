@@ -4,19 +4,31 @@ module Bittrex
 
       class InvalidApiMethod < StandardError; end
 
-      def get(method, **params)
-        begin
-          Request.new(send(method, params)).get
-        rescue NoMethodError => e
-          raise InvalidApiMethod, e.message
-        end
+      def self.included(base)
+        base.extend(ClassMethods)
       end
 
-      def post(method, **params)
-        begin
-          Request.new(send(method, params)).post
-        rescue NoMethodError => e
-          raise InvalidApiMethod, e.message
+      module ClassMethods
+        def get(method, **params)
+          begin
+            Request.new(send(method, params)).get
+          rescue NoMethodError => e
+            raise InvalidApiMethod, e.message
+          end
+        end
+
+        def post(method, **params)
+          begin
+            Request.new(send(method, params)).post
+          rescue NoMethodError => e
+            raise InvalidApiMethod, e.message
+          end
+        end
+
+        private
+
+        def api_key
+          @api_key ||= '?apikey=' + Bittrex.configuration.key
         end
       end
     end
