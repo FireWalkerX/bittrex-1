@@ -26,7 +26,6 @@ module Bittrex
           'market/cancel' + api_key + '&uuid=' + uuid
         end
 
-        # ??? NONCE_NOT_PROVIDED ???
         def open_orders(market: nil)
           'market/getopenorders' + api_key + (market.nil? ? '' : '&market=' + market)
         end

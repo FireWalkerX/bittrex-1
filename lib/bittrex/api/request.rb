@@ -14,10 +14,6 @@ module Bittrex
 
       private
 
-      def full_url
-
-      end
-
       def hmac_signature
         OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha512'), Bittrex.configuration.secret, @full_url)
       end

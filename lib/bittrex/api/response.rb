@@ -1,14 +1,11 @@
 module Bittrex
   module Api
     class Response
-      attr_reader :data
+      attr_reader :data, :results
 
       def initialize(data)
         @data = JSON.load(data)
-      end
-
-      def response
-        @response = data.fetch('result')
+        @results = @data.fetch('result')
       end
     end
   end
