@@ -6,10 +6,10 @@ require 'bittrex/version'
 Gem::Specification.new do |spec|
   spec.name          = "bittrex"
   spec.version       = Bittrex::VERSION
-  spec.authors       = ["Stu Halliburton"]
+  spec.authors       = ["Stuart Halliburton"]
   spec.email         = ["stu.halliburton@gmail.com"]
-  spec.summary       = %q{Write a short summary. Required.}
-  spec.description   = %q{Write a longer description. Optional.}
+  spec.summary       = %q{Bittrex API Wrapper}
+  spec.description   = %q{Bittrex API Wrapper for Ruby}
   spec.homepage      = ""
   spec.license       = "MIT"
 
