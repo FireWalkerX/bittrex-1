@@ -3,6 +3,7 @@ module Bittrex
     module Base
 
       class InvalidApiMethod < StandardError; end
+      class ResponseError < StandardError; end
 
       def self.included(base)
         base.extend(ClassMethods)
@@ -10,7 +11,11 @@ module Bittrex
 
       module ClassMethods
         def get(method, **params)
-          Request.new(send(method, params)).get
+          begin
+            Request.new(send(method, params)).get
+          rescue NoMethodError => e
+            raise InvalidApiMethod, e.message
+          end
         end
 
         private

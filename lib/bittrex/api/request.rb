@@ -9,7 +9,11 @@ module Bittrex
       end
 
       def get
-        Response.new(open(@full_url, { 'APISIGN' => hmac_signature }))
+        begin
+          Response.new(open(@full_url, { 'APISIGN' => hmac_signature }))
+        rescue NoMethodError => e
+          raise Base::ResponseError
+        end
       end
 
       private
