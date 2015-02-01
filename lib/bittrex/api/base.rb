@@ -10,11 +10,7 @@ module Bittrex
 
       module ClassMethods
         def get(method, **params)
-          begin
-            Request.new(send(method, params)).get
-          rescue NoMethodError => e
-            raise InvalidApiMethod, e.message
-          end
+          Request.new(send(method, params)).get
         end
 
         private
