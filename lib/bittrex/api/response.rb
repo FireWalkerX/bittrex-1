@@ -8,6 +8,8 @@ module Bittrex
         @results = @data.fetch('result')
         @success = @data.fetch('success')
         @message = @data.fetch('message')
+
+        raise Base::Throttled if message.match(/THROTTLED/)
       end
 
       def success?

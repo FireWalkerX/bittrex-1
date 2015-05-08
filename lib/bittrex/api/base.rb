@@ -4,6 +4,7 @@ module Bittrex
 
       class InvalidApiMethod < StandardError; end
       class ResponseError < StandardError; end
+      class Throttled < StandardError; end
 
       def self.included(base)
         base.extend(ClassMethods)
